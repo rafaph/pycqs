@@ -1,0 +1,47 @@
+{
+    "name": "pycqs",
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "devcontainer",
+    "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+    "remoteUser": "vscode",
+    "containerEnv": {
+        "PDM_IGNORE_ACTIVE_VENV": "1"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.mypy-type-checker",
+                "charliermarsh.ruff",
+                "EditorConfig.EditorConfig",
+                "tamasfe.even-better-toml",
+                "natqe.reload",
+                "ms-vscode.live-server",
+                "eamodio.gitlens"
+            ],
+            "settings": {
+                "terminal.integrated.fontFamily": "Roboto Mono for Powerline",
+                "python.defaultInterpreterPath": ".venv/bin/python",
+                "python.terminal.activateEnvironment": false,
+                "python.testing.pytestArgs": [
+                    "tests"
+                ],
+                "python.testing.unittestEnabled": false,
+                "python.testing.pytestEnabled": true,
+                "testing.showAllMessages": true,
+                "mypy-type-checker.importStrategy": "fromEnvironment",
+                "files.exclude": {
+                    "**/__pycache__": true
+                },
+                "[python]": {
+                    "editor.defaultFormatter": "charliermarsh.ruff",
+                    "editor.formatOnSave": true,
+                    "editor.codeActionsOnSave": {
+                        "source.fixAll": "explicit",
+                        "source.organizeImports": "explicit"
+                    }
+                }
+            }
+        }
+    },
+    "updateContentCommand": "pdm install"
+}
