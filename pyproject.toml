@@ -1,0 +1,148 @@
+[build-system]
+requires = ['pdm-backend']
+build-backend = 'pdm.backend'
+
+[project]
+name = 'pycqs'
+description = 'Python Command Query Segregation (CQS) utilities'
+authors = [
+    {name = 'Raphael Castro', email = 'rafaphcastro@gmail.com'},
+]
+license = {text = 'MIT'}
+classifiers = [
+    'Development Status :: 5 - Production/Stable',
+    'Programming Language :: Python',
+    'Programming Language :: Python :: Implementation :: CPython',
+    'Programming Language :: Python :: Implementation :: PyPy',
+    'Programming Language :: Python :: 3',
+    'Programming Language :: Python :: 3 :: Only',
+    'Programming Language :: Python :: 3.10',
+    'Programming Language :: Python :: 3.11',
+    'Programming Language :: Python :: 3.12',
+    'Programming Language :: Python :: 3.13',
+    'Intended Audience :: Developers',
+    'Intended Audience :: Information Technology',
+    'Intended Audience :: System Administrators',
+    'License :: OSI Approved :: MIT License',
+    'Operating System :: Unix',
+    'Operating System :: POSIX :: Linux',
+    'Environment :: Console',
+    'Environment :: MacOS X',
+    'Framework :: Hypothesis',
+    'Framework :: Pydantic',
+    'Topic :: Software Development :: Libraries :: Python Modules',
+    'Topic :: Internet',
+]
+requires-python = '>=3.10'
+readme = "README.md"
+dynamic = ['version']
+
+[project.urls]
+Homepage = 'https://github.com/rafaph/pycqs'
+Documentation = 'https://github.com/rafaph/pycqs'
+Source = 'https://github.com/rafaph/pycqs'
+Changelog = 'https://github.com/rafaph/pycqs/blob/main/HISTORY.md'
+
+[tool.pdm.version]
+source = "file"
+path = "pycqs/__init__.py"
+
+[tool.pdm.build]
+includes = ["pycqs/"]
+
+[tool.pdm.dev-dependencies]
+linting = [
+    'mypy~=1.11',
+    'ruff~=0.5.7',
+    'codespell~=2.3'
+]
+testing = [
+    'pytest~=8.3',
+    'pytest-cov~=5.0',
+    'pytest-pretty~=1.2',
+]
+
+[tool.pytest.ini_options]
+testpaths = 'tests'
+xfail_strict = true
+
+[tool.ruff]
+line-length = 79
+target-version = 'py310'
+
+[tool.ruff.lint]
+select = [
+    'F',      # pyflakes
+    'E',      # pycodestyle (Error)
+    'I',      # isort
+    'D',      # pydocstyle
+    'UP',     # pyupgrade
+    'YTT',    # flake8-2020
+    'B',      # flake8-bugbear
+    'T10',    # flake8-debugger
+    'T20',    # flake8-print
+    'C4',     # flake8-comprehensions
+    'PYI006', # flake8-pyi
+]
+ignore = ['D105', 'D107', 'D205', 'D415', 'E501', 'B011', 'B028', 'B904']
+flake8-quotes = {inline-quotes = 'single', multiline-quotes = 'double'}
+isort = { known-first-party = ['pycqs', 'tests'] }
+mccabe = { max-complexity = 14 }
+pydocstyle = { convention = 'google' }
+
+[tool.ruff.lint.per-file-ignores]
+'tests/*' = ['D']
+
+[tool.ruff.lint.extend-per-file-ignores]
+'tests/**/*.py' = ['T', 'E721', 'F811']
+
+[tool.ruff.format]
+quote-style = 'single'
+
+[tool.mypy]
+python_version = '3.10'
+pretty = true
+strict = true
+warn_unreachable = true
+disallow_any_explicit = true
+disallow_any_decorated = true
+disallow_any_unimported = true
+disallow_untyped_defs = true
+
+[tool.codespell]
+skip = '.git,coverage'
+
+[tool.coverage.report]
+precision = 2
+exclude_lines = [
+    'pragma: no cover',
+    'raise NotImplementedError',
+    'if TYPE_CHECKING:',
+    'if typing.TYPE_CHECKING:',
+    '@overload',
+    '@typing.overload',
+    '\(Protocol\):$',
+    'typing.assert_never',
+    'assert_never',
+]
+
+[tool.coverage.html]
+directory = "coverage"
+
+[tool.coverage.xml]
+output = "coverage/coverage.xml"
+
+[tool.coverage.lcov]
+output = "coverage/lcov.info"
+
+[tool.pdm.scripts]
+lint-check = 'ruff check pycqs tests'
+lint-format = 'ruff format --check pycqs tests'
+lint = {composite = ['lint-check', 'lint-format']}
+format-check = 'pdm run ruff check --fix pycqs tests'
+format-format = 'pdm run ruff format pycqs tests'
+format = {composite = ['format-check', 'format-format']}
+typecheck = 'mypy pycqs tests'
+test = 'pytest'
+test-cov = 'pytest --cov=pycqs --cov-branch --cov-report term --cov-report html --cov-report xml --cov-report lcov'
+post_install = "pre-commit install -f --install-hooks"

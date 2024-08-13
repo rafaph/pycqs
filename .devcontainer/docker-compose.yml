@@ -1,0 +1,14 @@
+name: pycqs
+
+services:
+  devcontainer:
+    build:
+      dockerfile: Dockerfile
+    hostname: devcontainer
+    volumes:
+      - ../:/workspaces/pycqs:cached
+      - commandhistory:/commandhistory
+    command: sleep infinity
+
+volumes:
+  commandhistory:
