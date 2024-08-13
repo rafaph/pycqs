@@ -35,7 +35,7 @@ jobs:
       - name: install
         run: |
           pdm venv create --with-pip --force $PYTHON
-          pdm install -G linting --skip=:post
+          pdm install --skip=:post
       - uses: pre-commit/action@v3.0.1
         with:
           extra_args: '--all-files --verbose'
