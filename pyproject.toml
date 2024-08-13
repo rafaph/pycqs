@@ -34,7 +34,7 @@ classifiers = [
     'Topic :: Internet',
 ]
 requires-python = '>=3.10'
-readme = "README.md"
+readme = 'README.md'
 dynamic = ['version']
 
 [project.urls]
@@ -44,11 +44,11 @@ Source = 'https://github.com/rafaph/pycqs'
 Changelog = 'https://github.com/rafaph/pycqs/blob/main/HISTORY.md'
 
 [tool.pdm.version]
-source = "file"
-path = "pycqs/__init__.py"
+source = 'file'
+path = 'pycqs/__init__.py'
 
 [tool.pdm.build]
-includes = ["pycqs/"]
+includes = ['pycqs/']
 
 [tool.pdm.dev-dependencies]
 linting = [
@@ -60,6 +60,9 @@ testing = [
     'pytest~=8.3',
     'pytest-cov~=5.0',
     'pytest-pretty~=1.2',
+    'pytest-mock~=3.14',
+    'pytest-testdox~=3.1',
+    'anyio~=4.4',
 ]
 
 [tool.pytest.ini_options]
@@ -127,13 +130,13 @@ exclude_lines = [
 ]
 
 [tool.coverage.html]
-directory = "coverage"
+directory = 'coverage'
 
 [tool.coverage.xml]
-output = "coverage/coverage.xml"
+output = 'coverage/coverage.xml'
 
 [tool.coverage.lcov]
-output = "coverage/lcov.info"
+output = 'coverage/lcov.info'
 
 [tool.pdm.scripts]
 lint-check = 'ruff check pycqs tests'
@@ -143,6 +146,6 @@ format-check = 'pdm run ruff check --fix pycqs tests'
 format-format = 'pdm run ruff format pycqs tests'
 format = {composite = ['format-check', 'format-format']}
 typecheck = 'mypy pycqs tests'
-test = 'pytest'
+test = 'pytest --testdox'
 test-cov = 'pytest --cov=pycqs --cov-branch --cov-report term --cov-report html --cov-report xml --cov-report lcov'
-post_install = "pre-commit install -f --install-hooks"
+post_install = 'pre-commit install -f --install-hooks'
