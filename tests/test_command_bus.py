@@ -11,7 +11,7 @@ class FakeCommandHandler(CommandHandler[FakeCommand]):
     async def execute(self, command: FakeCommand) -> None: ...
 
 
-@pytest.mark.anyio(scope='class')
+@pytest.mark.asyncio(scope='class')
 @pytest.mark.describe(CommandBus.__name__)
 class TestCommandBus:
     @pytest.mark.it('Should execute the command handler')

@@ -21,7 +21,7 @@ class FakeQueryHandler(QueryHandler[FakeQuery, FakeQueryResult]):
         return FakeQueryResult(output_data=query.input_data)
 
 
-@pytest.mark.anyio(scope='class')
+@pytest.mark.asyncio(scope='class')
 @pytest.mark.describe(QueryBus.__name__)
 class TestQueryBus:
     @pytest.mark.it('Should execute the query handler')

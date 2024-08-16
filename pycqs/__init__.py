@@ -3,7 +3,7 @@
 from .command_bus import Command, CommandBus, CommandHandler
 from .query_bus import Query, QueryBus, QueryHandler, QueryResult
 
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 __all__ = [
     'Command',
     'CommandBus',

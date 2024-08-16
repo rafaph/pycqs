@@ -53,7 +53,7 @@ includes = ['pycqs/']
 [tool.pdm.dev-dependencies]
 linting = [
     'mypy~=1.11',
-    'ruff~=0.5.7',
+    'ruff~=0.6.0',
     'codespell~=2.3'
 ]
 testing = [
@@ -62,7 +62,7 @@ testing = [
     'pytest-pretty~=1.2',
     'pytest-mock~=3.14',
     'pytest-testdox~=3.1',
-    'anyio~=4.4',
+    "pytest-asyncio~=0.23.8",
 ]
 
 [tool.pytest.ini_options]
