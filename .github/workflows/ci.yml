@@ -88,6 +88,10 @@ jobs:
         with:
           name: 'coverage-${{ matrix.os }}-${{ matrix.python-version }}'
           path: coverage
+      - name: upload results to codecov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
 
   check:
     if: always()
