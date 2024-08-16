@@ -65,7 +65,7 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
-More usage examples on [tests](./tests/test_command_bus.py).
+More usage examples on [tests](https://github.com/rafaph/pycqs/blob/main/tests/test_command_bus.py).
 
 - Using the `QueryBus`.
 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     asyncio.run(main())
 ```
 
-More usage examples on [tests](./tests/test_query_bus.py).
+More usage examples on [tests](https://github.com/rafaph/pycqs/blob/main/tests/test_query_bus.py).
 
 ## License
 
