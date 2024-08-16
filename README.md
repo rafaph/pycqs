@@ -1,7 +1,8 @@
 # pycqs
 
 [![PyPI](https://img.shields.io/pypi/v/pycqs?label=PyPI)](https://pypi.org/project/pycqs)
-[![Tests](https://github.com/rafaph/pycqs/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaph/pycqs/actions/workflows/ci.yml)
+[![CI](https://github.com/rafaph/pycqs/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaph/pycqs/actions/workflows/ci.yml)
+[![Coverage](https://codecov.io/gh/rafaph/pycqs/graph/badge.svg?token=VQ7VMQFBV9)](https://codecov.io/gh/rafaph/pycqs)
 [![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm-project.org/en/stable/)
 
 Command Query Segregation (CQS) utilities for Python.
