@@ -1,3 +1,18 @@
+## v1.0.1 (2024-08-16)
+
+[GitHub release](https://github.com/rafaph/pycqs/releases/tag/v1.0.1)
+
+### What's Changed
+
+#### Fixes
+
+* Add `py.typed` marker.
+* Refactor unit tests to use `pytest-asyncio` and not `anyio` anymore.
+
+#### Packaging
+
+* Bump `ruff` to `v0.6.0`.
+
 ## v1.0.0 (2024-08-13)
 
 [GitHub release](https://github.com/rafaph/pycqs/releases/tag/v1.0.0)
