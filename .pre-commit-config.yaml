@@ -51,5 +51,6 @@ repos:
         name: test
         entry: pdm run test-cov
         language: system
-        stages: [pre-push]
+        stages:
+          - pre-push
         pass_filenames: false

@@ -1,5 +1,9 @@
 # pycqs
 
+[![PyPI](https://img.shields.io/pypi/v/pycqs?label=PyPI)](https://pypi.org/project/pycqs)
+[![Tests](https://github.com/rafaph/pycqs/actions/workflows/ci.yml/badge.svg)](https://github.com/rafaph/pycqs/actions/workflows/ci.yml)
+[![pdm-managed](https://img.shields.io/badge/pdm-managed-blueviolet)](https://pdm-project.org/en/stable/)
+
 Command Query Segregation (CQS) utilities for Python.
 
 Provides the `CommandBus` and `QueryBus` classes.
