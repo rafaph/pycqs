@@ -89,7 +89,7 @@ jobs:
           name: 'coverage-${{ matrix.os }}-${{ matrix.python-version }}'
           path: coverage
       - name: upload results to codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
